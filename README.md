@@ -1,6 +1,6 @@
 # DeCKR
 
-## This is the team project repository for the DeCKER team of 
+## This is the team project repository for the DeCKR team of 
 
 ## EN632:  Software Architecture Appl.
  
