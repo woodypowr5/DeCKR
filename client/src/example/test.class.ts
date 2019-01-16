@@ -1,12 +1,11 @@
-export default class Test {
+export class Test {
     private name: string;
 
     constructor(name: string) {
         this.name = name;
-        console.log("creating new Test object");
     }
 
-    printGreeting():void {
-        console.log("hello" + this.name);
+    sayHello(): void {
+        console.log("Hello " + this.name + ", I'm an instance of the Test class");
     }
 }

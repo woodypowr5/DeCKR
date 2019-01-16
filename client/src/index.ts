@@ -1,4 +1,4 @@
-import Test from './example/test.class';
+import { Test } from './example/test.class';
 
-let testInstance: Test = new Test("Chris");
-testInstance.printGreeting();
+let test = new Test("Chris");
+test.sayHello();
