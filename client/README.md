@@ -38,3 +38,13 @@ npm run build
 ``` 
 
 Creates a bundle into the `dist` folder:
+
+## Editing
+
+### All Typescript code is in the /src folder
+
+If using an IDE that support Typescript bindings (e.g. vsCode), you will get real-time syntax and type errors and autocomplete/intellisense menu as you type. 
+
+### Typescript auto-compiles into JavaScript any time a save is made to a .ts file
+
+Additionally, the Web Server refreshes the browser each time a recompile takes place
