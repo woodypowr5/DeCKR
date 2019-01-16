@@ -1,3 +1,15 @@
+## `First Steps`
+
+### Make sure NodeJS is installed
+### Navigate to /cient in terminal
+### Install Dependencies
+
+```sh
+npm install
+```
+
+## `Usage`
+
 ### `npm start` or `npm run server:prod`
 
 Runs the app in development / production mode using Webpack dev server.
