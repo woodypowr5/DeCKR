@@ -1,4 +1,4 @@
-## `First Steps`
+## First Steps
 
 ### Make sure NodeJS is installed
 
