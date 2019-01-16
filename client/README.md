@@ -13,7 +13,14 @@ This README will also explain step-by-step how you can set up this repository so
 npm run build
 ```
 
-## Type-checking the repo
+
+### Run the build task
+
+```sh
+npm run bundle
+```
+
+## Type-checking the repo (you shouldn't need to do this)
 
 ```sh
 npm run type-check
@@ -23,10 +30,4 @@ And to run in `--watch` mode:
 
 ```sh
 npm run type-check:watch
-```
-
-### Run the build task
-
-```sh
-npm run bundle
 ```
