@@ -1,4 +1,9 @@
-import { Test } from './example/test.class';
+import { MainModule } from './modules/main.module';
 
-let test = new Test("Chris");
-test.sayHello();
+const newApp = new MainModule();
+
+setTimeout(function(){ 
+    console.log("User Logging in (simulated)")
+    newApp.login();
+}, 3000);
+
