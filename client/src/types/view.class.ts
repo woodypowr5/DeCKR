@@ -1,4 +1,4 @@
-import { trainingView } from "../data/views/training";
+import { trainingView } from "../data/views/training.view";
 import { views } from "../data/views";
 
 export class View {

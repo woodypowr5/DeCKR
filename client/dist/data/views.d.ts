@@ -6,4 +6,6 @@ export declare const views: {
     register: View;
     training: View;
     trainings: View;
+    login: View;
+    dashboard: View;
 };

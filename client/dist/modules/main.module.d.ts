@@ -10,5 +10,10 @@ export declare class MainModule {
     dataAccessModule: DataAccessModule;
     constructor();
     initialize(): void;
+    navigateLogin(): void;
+    navigateTrainings(): void;
+    navigateContracts(): void;
+    navigateSecurityGroups(): void;
     login(): void;
+    logout(): void;
 }

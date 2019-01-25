@@ -2,7 +2,9 @@ import { View } from "../../types/view.class";
 
 const args = {
     name: 'main',
-    template: '<div class="main-content" id="main-content"></div>',
+    template: `
+        <div class="main-content" id="main-content"></div>
+    `,
     anchorElementId: ''
 }
 

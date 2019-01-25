@@ -7,6 +7,8 @@ export declare class RenderModule {
         register: View;
         training: View;
         trainings: View;
+        login: View;
+        dashboard: View;
     };
     constructor();
     renderView(viewName: string, data: Object): void;

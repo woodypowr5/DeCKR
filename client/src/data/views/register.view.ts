@@ -11,7 +11,7 @@ const args = {
         </h3>
     
         <div>
-
+            Registeration Form Here
         </div>
     `,
     anchorElementId: 'main-content'

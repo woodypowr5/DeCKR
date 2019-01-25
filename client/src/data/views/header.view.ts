@@ -2,7 +2,9 @@ import { View } from "../../types/view.class";
 
 const args = {
     name: 'header',
-    template: '<div>I\'m the header</div>',
+    template: `
+        <div>I\'m the header</div>
+    `,
     anchorElementId: ''
 }
 
