@@ -10,6 +10,6 @@ export class RenderModule {
 
     renderView(viewName: string, data: Object) {    
         const view: View = this.views[viewName];
-        view.render({});
+        view.render(data);
     }    
 }

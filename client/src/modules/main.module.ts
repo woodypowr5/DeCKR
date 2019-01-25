@@ -18,15 +18,22 @@ export class MainModule {
     initialize() {
         console.log("MainModule: initialize()");
         this.renderModule.renderView('header', {});
+        this.renderModule.renderView('main', {});
         this.renderModule.renderView('footer', {});
+        
     }
 
     login() {
         this.loggedInUserId = this.authModule.login('chris', 'password');
-        if(this.authModule.isAuthenticated(this.loggedInUserId)) {
+        if (this.authModule.isAuthenticated(this.loggedInUserId)) {
             this.dataAccessModule.fetchUserInfo(this.loggedInUserId).then((userInfo) => {
                 this.userInfo = userInfo;
+                this.renderModule.renderView('trainings', this.userInfo);
             })
+        } else {
+            this.renderModule.renderView('login', { 
+                error: 'invalidLogin' 
+            });
         }
     }
 }
