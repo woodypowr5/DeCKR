@@ -12,6 +12,8 @@ https://nodejs.org/en/download/
 
 ```sh
 npm install
+npm install -g firebase
+npm install -g firebase-tools
 ```
 
 ## Usage
