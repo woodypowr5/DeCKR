@@ -1,8 +1,9 @@
 import { MainModule } from './modules/main.module';
 
-const newApp = new MainModule();
+window.deckrApp = new MainModule();
 
-setTimeout(function(){ 
-    console.log("User Logging in (simulated)")
-    newApp.login();
-}, 3000);
+declare global {
+    interface Window { deckrApp: any; }
+}
+
+window.deckrApp = window.deckrApp || {};

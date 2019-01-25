@@ -20,7 +20,24 @@ export class MainModule {
         this.renderModule.renderView('header', {});
         this.renderModule.renderView('main', {});
         this.renderModule.renderView('footer', {});
-        
+        this.renderModule.renderView('register', {});
+    }
+
+    
+    navigateLogin() {
+        this.renderModule.renderView('login', {});
+    }
+
+    navigateTrainings() {
+        this.renderModule.renderView('trainings', this.userInfo);
+    }
+
+    navigateContracts() {
+        this.renderModule.renderView('contracts', {});
+    }
+
+    navigateSecurityGroups() {
+        this.renderModule.renderView('securityGroups', {});
     }
 
     login() {
@@ -28,7 +45,7 @@ export class MainModule {
         if (this.authModule.isAuthenticated(this.loggedInUserId)) {
             this.dataAccessModule.fetchUserInfo(this.loggedInUserId).then((userInfo) => {
                 this.userInfo = userInfo;
-                this.renderModule.renderView('trainings', this.userInfo);
+                this.renderModule.renderView('dashboard', {});
             })
         } else {
             this.renderModule.renderView('login', { 
@@ -36,4 +53,12 @@ export class MainModule {
             });
         }
     }
+
+    logout() {
+
+    }
+
+
+
+
 }
