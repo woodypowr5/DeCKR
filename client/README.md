@@ -11,9 +11,9 @@ https://nodejs.org/en/download/
 ### Install Dependencies
 
 ```sh
-npm install
 npm install -g firebase
 npm install -g firebase-tools
+npm install
 ```
 
 ## Usage
