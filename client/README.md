@@ -1,3 +1,5 @@
+VIEW THE CLIENT SIDE APP HERE: https://deckr-f715d.firebaseapp.com
+
 ## First Steps
 
 ### Make sure NodeJS is installed
@@ -9,6 +11,8 @@ https://nodejs.org/en/download/
 ### Install Dependencies
 
 ```sh
+npm install -g firebase
+npm install -g firebase-tools
 npm install
 ```
 
@@ -37,7 +41,14 @@ Runs the unit tests using Karma as test runner and Jasmine as testing framework.
 npm run build
 ``` 
 
-Creates a bundle into the `dist` folder:
+Creates a bundle into the `dist` folder
+
+### Deploy to Firebase hosting
+
+```sh
+firebase deploy
+``` 
+Deploys to Firebase hosting. Can be accessed at https://deckr-f715d.firebaseapp.com
 
 ## Editing
 
