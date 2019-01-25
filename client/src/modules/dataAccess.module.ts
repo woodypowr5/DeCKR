@@ -15,7 +15,7 @@ export class DataAccessModule {
                 console.log("DataAccessModule: received userInfo:");
                 console.log(userInfo)
                 resolve(userInfo); 
-            }, 3000);
+            }, 1000);
         });  
         return promise;
     }

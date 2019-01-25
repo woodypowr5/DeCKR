@@ -6,4 +6,3 @@ setTimeout(function(){
     console.log("User Logging in (simulated)")
     newApp.login();
 }, 3000);
-
