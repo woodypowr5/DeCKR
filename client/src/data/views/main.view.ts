@@ -3,7 +3,11 @@ import { View } from "../../types/view.class";
 const args = {
     name: 'main',
     template: `
-        <div class="main-content" id="main-content"></div>
+        <main class="mdl-layout__content">
+            <div class="page-content main-content">
+                <!-- content goes here -->
+            </div>
+        </main>
     `,
     anchorElementId: ''
 }

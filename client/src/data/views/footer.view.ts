@@ -3,7 +3,7 @@ import { View } from "../../types/view.class";
 const args = {
     name: 'footer',
     template: `
-        <div>I\'m the footer</div>
+       </div>
     `,
     anchorElementId: ''
 }

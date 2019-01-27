@@ -26,8 +26,10 @@ export class View {
 
         if (this.name === 'trainings') {
             this.renderNestedElements(model, views.training);
-        }  else {
-
+        } else if (this.name === 'securityGroups') {
+            this.renderNestedElements(model, views.securityGroup);
+        } else if (this.name === 'contracts') {
+            this.renderNestedElements(model, views.contract);
         }
     }
 
