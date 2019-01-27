@@ -18,6 +18,14 @@ export const mockData = {
                 time: new Date(),
                 duration: '5 hours',
                 location: 'here'
+            },
+            {
+                id: 3,
+                name: 'Example Training 3',
+                status: 'incomplete',
+                time: new Date(),
+                duration: '5 hours',
+                location: 'here'
             }
         ] as any,
         jobPosition: 'job',

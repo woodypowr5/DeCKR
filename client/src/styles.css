@@ -1,3 +1,43 @@
 main{
-    padding: 20px;
+    width: 100%;
+    margin-top: 56px;
+}
+
+.main-content{
+    padding: 7px 20px;
+}
+
+.trainings-content{
+    /* display: flex;
+    flex-wrap: wrap; */
+}
+
+.training{
+    display: inline-block;
+    width: 300px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+.training-card{
+    width: 100%;
+}
+.training-card-image{
+    width: 100%;
+    height: 100px;
+}
+
+.training-card > .mdl-card__title {
+    color: #fff;
+    padding-bottom: 0px;
+}
+
+.training-card .mdl-card__title-text {
+    line-height: 40px;
+    color: black;
+}
+
+@media screen and (min-width: 1025px) {
+    main {
+        margin-left: 240px;
+    }
 }

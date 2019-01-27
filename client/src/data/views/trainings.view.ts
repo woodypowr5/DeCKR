@@ -7,6 +7,7 @@ const args = {
         <h2>
             Trainings
         </h2>
+        <hr>
         <div class="trainings-content" id="trainings-content"></div>`
     ,
     anchorElementId: 'main-content'
