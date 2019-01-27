@@ -9,6 +9,10 @@ export declare class RenderModule {
         trainings: View;
         login: View;
         dashboard: View;
+        contracts: View;
+        contract: View;
+        securityGroups: View;
+        securityGroup: View;
     };
     constructor();
     renderView(viewName: string, data: Object): void;

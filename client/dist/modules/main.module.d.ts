@@ -11,6 +11,7 @@ export declare class MainModule {
     constructor();
     initialize(): void;
     navigateLogin(): void;
+    navigateDashboard(): void;
     navigateTrainings(): void;
     navigateContracts(): void;
     navigateSecurityGroups(): void;

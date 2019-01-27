@@ -8,4 +8,8 @@ export declare const views: {
     trainings: View;
     login: View;
     dashboard: View;
+    contracts: View;
+    contract: View;
+    securityGroups: View;
+    securityGroup: View;
 };
