@@ -16,9 +16,6 @@ export class View {
     }
 
     render(model: Object) {
-        console.log('rendering ' + this.name + ' with data model ');
-        console.log(model);
-
         this.setAnchorElement();
         this.removeOldContent();
         this.populateTemplate(model);
@@ -52,12 +49,31 @@ export class View {
         } 
     }
 
-    private populateTemplate(model: Object): void {
-        let newTemplate = this.template;
+    private populateTemplate(model: any): void {
+        let newTemplate = this.evaluateConditionalTokens(this.template, model);
         for (var attribute in model) {
             newTemplate = newTemplate.replace('[[' + attribute + ']]', model[attribute]);
+            newTemplate = newTemplate.replace('undefined', '');
         }  
         this.populatedTemplate = newTemplate;  
+    }
+
+    private evaluateConditionalTokens(template: string, model: any): string {
+        let ifTokenRegex = new RegExp(/\[if(.*)\[.*?\]\]/, 'g');
+        let conditionalToken = template.match(ifTokenRegex);
+        if (conditionalToken !== null && conditionalToken.length > 0) {
+            let result = template.replace(ifTokenRegex, (token, clause) => {
+                if (eval(clause) === true) {
+                    let html = token.replace(/ *\[if\([^)]*\)\[ */g, "");
+                    return html.replace("]]", "");
+                }
+            })
+            if (result !== undefined) {
+                return result;
+            }
+            return "";
+        }
+        return template;
     }
 
     private insertNewContent(content: string): void {

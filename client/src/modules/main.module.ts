@@ -16,7 +16,6 @@ export class MainModule {
     }
 
     initialize() {
-        console.log("MainModule: initialize()");
         this.renderModule.renderView('header', {});
         this.renderModule.renderView('main', {});
         this.renderModule.renderView('footer', {});
