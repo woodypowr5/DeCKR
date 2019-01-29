@@ -2,6 +2,34 @@ export const mockData = {
     userInfo: {
         name: 'chris',
         securityGroups: [] as any,
+        contracts: [
+            {
+                id: 1,
+                name: "Contract 1",
+                signature: null as any
+            },
+            {
+                id: 2,
+                name: "Contract 2",
+                signature: {
+                    employeeID: 101,
+                    date: new Date()
+                }
+            },
+            {
+                id: 3,
+                name: "Contract 3",
+                signature: null as any
+            },
+            {
+                id: 4,
+                name: "Contract 4",
+                signature: {   
+                    employeeID: 101,
+                    date: new Date()
+                }
+            }
+        ],
         trainings: [
             {
                 id: 1,

@@ -3,10 +3,11 @@ import { View } from "../../types/view.class";
 const args = {
     name: 'contracts',
     template: `
-        <button onclick="window.deckrApp.navigateDashboard()">Back</button>
+        <a href="#" class="navigate-back-link" onclick="window.deckrApp.navigateDashboard()">Back</a>
         <h2>
             Contracts
         </h2>
+        <hr>
         <div class="contracts-content" id="contracts-content"></div>
     `,
     anchorElementId: 'main-content'

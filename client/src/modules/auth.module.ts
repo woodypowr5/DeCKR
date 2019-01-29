@@ -24,5 +24,4 @@ export class AuthModule {
         console.log("logged in as " + username);
         return username;
     }
-
 }

@@ -4,10 +4,16 @@ main{
 }
 
 .main-content{
-    padding: 7px 20px;
+    padding: 42px 20px;
+}
+
+.navigate-back-link{
+    position: absolute;
+    top: 25px;
 }
 
 .training{
+    position: relative;
     display: inline-block;
     width: 300px;
     margin-right: 25px;

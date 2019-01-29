@@ -10,6 +10,7 @@ export declare class View {
     private setAnchorElement;
     private removeOldContent;
     private populateTemplate;
+    private evaluateConditionalTokens;
     private insertNewContent;
     private renderNestedElements;
 }

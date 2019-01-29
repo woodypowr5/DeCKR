@@ -41,7 +41,7 @@ export class View {
     }
 
     private removeOldContent(): void {
-        if (this.anchorElement.tagName !== 'BODY' && this.name !== 'training') {
+        if (this.anchorElement.tagName !== 'BODY' && this.name !== 'training' && this.name !== 'contract' && this.name !== 'securityGroup' ) {
             const element = document.getElementById(this.anchorElementId);
             while(element.firstChild){
                 element.removeChild(element.firstChild);
@@ -59,13 +59,13 @@ export class View {
     }
 
     private evaluateConditionalTokens(template: string, model: any): string {
-        let ifTokenRegex = new RegExp(/\[if(.*)\[.*?\]\]/, 'g');
+        let ifTokenRegex = new RegExp(/\{if(.*)\{.*?\}\}/, 'g');
         let conditionalToken = template.match(ifTokenRegex);
         if (conditionalToken !== null && conditionalToken.length > 0) {
             let result = template.replace(ifTokenRegex, (token, clause) => {
                 if (eval(clause) === true) {
-                    let html = token.replace(/ *\[if\([^)]*\)\[ */g, "");
-                    return html.replace("]]", "");
+                    let html = token.replace(/ *\{if\([^)]*\)\{ */g, "");
+                    return html.replace("}}", "");
                 }
             })
             if (result !== undefined) {
@@ -81,8 +81,12 @@ export class View {
     }
 
     private renderNestedElements(model: Object, view: View): void {
+        console.log(model);;
+        console.log(view)
         const collection: any[] = model[this.name];
         collection.map((instance, index) => {
+            console.log(view);
+            console.log(collection[index]);
             view.render(collection[index]);
         });
     }
