@@ -1,5 +1,6 @@
 import { trainingView } from "../data/views/training.view";
 import { views } from "../data/views";
+import { Contract } from "./contract.interface";
 
 export class View {
     private name: string;
@@ -15,7 +16,7 @@ export class View {
         this.anchorElementId = anchorElementId;   
     }
 
-    render(model: Object) {
+    render(model: any) {
         this.setAnchorElement();
         this.removeOldContent();
         this.populateTemplate(model);
@@ -26,6 +27,9 @@ export class View {
         } else if (this.name === 'securityGroups') {
             this.renderNestedElements(model, views.securityGroup);
         } else if (this.name === 'contracts') {
+            model.contracts.map(contract => {
+               contract.signature == null ? contract.signatureDate = null : contract.signatureDate = contract.signature.date; 
+            });
             this.renderNestedElements(model, views.contract);
         }
     }
@@ -50,8 +54,10 @@ export class View {
     }
 
     private populateTemplate(model: any): void {
+        console.log(model);
         let newTemplate = this.evaluateConditionalTokens(this.template, model);
         for (var attribute in model) {
+            console.log(attribute)
             newTemplate = newTemplate.replace('[[' + attribute + ']]', model[attribute]);
             newTemplate = newTemplate.replace('undefined', '');
         }  

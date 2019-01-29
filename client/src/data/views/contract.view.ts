@@ -15,7 +15,7 @@ const args = {
             </div>
             <div class="mdl-card__actions mdl-card--border">
                 {if(model.signature === null){<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">View & Sign</a>}}
-                {if(model.signature !== null){<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Signed on [[model.signature.date]]</a>}}
+                {if(model.signature !== null){<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Signed on [[signatureDate]]</a>}}
             </div>
         </div>
     </div>

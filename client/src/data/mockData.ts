@@ -13,7 +13,7 @@ export const mockData = {
                 name: "Contract 2",
                 signature: {
                     employeeID: 101,
-                    date: new Date()
+                    date: "hello"
                 }
             },
             {
@@ -26,7 +26,7 @@ export const mockData = {
                 name: "Contract 4",
                 signature: {   
                     employeeID: 101,
-                    date: new Date()
+                    date: "hello"
                 }
             }
         ],
