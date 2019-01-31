@@ -6,7 +6,7 @@ export declare class View {
     private anchorElement;
     private model;
     constructor(name: string, template: string, anchorElementId: string);
-    render(model: Object): void;
+    render(model: any): void;
     private setAnchorElement;
     private removeOldContent;
     private populateTemplate;

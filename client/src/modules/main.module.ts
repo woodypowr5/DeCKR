@@ -59,4 +59,11 @@ export class MainModule {
     logout() {
 
     }
+
+    verifyTrainingComplete(trainingId: string): void {
+        this.dataAccessModule.verifyTrainingComplete(this.loggedInUserId, trainingId).then( newUserInfo => {
+            this.userInfo = newUserInfo;
+        });
+        this.renderModule.renderView('trainings', this.userInfo);
+    }
 }

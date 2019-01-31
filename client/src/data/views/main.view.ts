@@ -4,9 +4,7 @@ const args = {
     name: 'main',
     template: `
         <main class="mdl-layout__content">
-            <div class="page-content main-content" id="main-content">
-                <!-- content goes here -->
-            </div>
+            <div class="page-content main-content" id="main-content"></div>
         </main>
     `,
     anchorElementId: ''

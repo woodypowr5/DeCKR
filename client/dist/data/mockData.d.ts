@@ -2,6 +2,11 @@ export declare const mockData: {
     userInfo: {
         name: string;
         securityGroups: any;
+        contracts: {
+            id: number;
+            name: string;
+            signature: any;
+        }[];
         trainings: any;
         jobPosition: string;
         department: string;

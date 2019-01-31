@@ -1,5 +1,5 @@
 export interface Training {
-    id: number;
+    id: string;
     name: string;
     status: string;
     time: string;

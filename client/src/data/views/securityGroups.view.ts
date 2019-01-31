@@ -7,6 +7,7 @@ const args = {
         <h2>
             Security Groups
         </h2>
+        <hr>
         <div class="security-groups-content" id="security-groups-content"></div>`
     ,
     anchorElementId: 'main-content'

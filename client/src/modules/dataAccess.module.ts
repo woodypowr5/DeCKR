@@ -2,30 +2,38 @@ import { UserInfo } from "../types/userInfo.interface";
 import { mockData } from "../data/mockData";
 
 export class DataAccessModule {
+    private userInfo: UserInfo;
 
-    constructor() {
-        
-    }
+    constructor() {}
 
-    fetchUserInfo(userId: string): Promise<UserInfo> {
+    async fetchUserInfo(userId: string): Promise<UserInfo>{ 
         const userInfo: UserInfo = mockData.userInfo; 
-        const promise = new Promise<UserInfo>((resolve, reject) => {
+        let data = await new Promise<UserInfo>((resolve, reject) => {
             setTimeout(function(){ 
-                resolve(userInfo); 
-            }, 1000);
+                resolve(userInfo);
+            }, 500);
         });  
-        return promise;
+        this.userInfo = data;
+        return data;
     }
 
-    setPassword() {
+    async verifyTrainingComplete(userId: string, trainingId: string): Promise<UserInfo> {
+        const userInfo: UserInfo = this.userInfo; 
+        userInfo.trainings.filter( training => training.id === trainingId)[0].status = 'complete';
+        let data = await new Promise<UserInfo>((resolve, reject) => {
+            setTimeout(function(){ 
+                resolve(userInfo)
+            }, 500);
+        });  
+        this.userInfo = data;
+        return data;
+    }
+
+    signContract(userId: string, contractId: string) {
 
     }
 
-    setTrainingStatus() {
-
-    }
-
-    signContract() {
+    setPassword(userId: string, pasword: string) {
 
     }
 }

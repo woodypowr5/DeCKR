@@ -4,24 +4,24 @@ body{
 
 main{
     width: 100%;
-    margin-top: 56px;
+    margin-top: 46px;
 }
+
 .mdl-layout__container {
     min-height: 2000px;
 }
+
 .main-content{
     padding: 42px 20px;
+}
+
+.dashboard-content{
+    padding-top: 50px;
 }
 
 .dashboard-card{
     margin: 0 auto;
 }
-
-@media screen and (min-width: 1025px) {
-    .dashboard-card {
-        margin-left: 240px;
-    }
-}    
 
 .dashboard-card .mdl-card__title{
     padding: 30px;
@@ -37,11 +37,17 @@ main{
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    width: 180px;
 }
 
 .navigate-back-link{
     position: absolute;
     top: 25px;
+}
+
+.registration-form-container{
+    margin: 0 auto;
+    margin-top: 30px;
 }
 
 .training{
@@ -89,10 +95,4 @@ main{
     display: block;
     background-color: lightblue;
     padding: 0px 8px;   
-}
-
-@media screen and (min-width: 1025px) {
-    main {
-        margin-left: 240px;
-    }
 }

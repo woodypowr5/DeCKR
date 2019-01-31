@@ -3,7 +3,7 @@ import { View } from "../../types/view.class";
 const args = {
     name: 'header',
     template: `
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+    <div class="mdl-layout mdl-js-layout mdl-layout--drawer
     mdl-layout--fixed-header">
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
