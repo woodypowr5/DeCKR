@@ -43,7 +43,9 @@ export class MainModule {
     }
 
     login() {
-        this.loggedInUserId = this.authModule.login('chris', 'password');
+        var username = (<HTMLInputElement>document.getElementById('textfield_login_username')).value;
+        var password = (<HTMLInputElement>document.getElementById('textfield_login_password')).value;
+        this.loggedInUserId = this.authModule.login(username, password);
         if (this.authModule.isAuthenticated(this.loggedInUserId)) {
             this.dataAccessModule.fetchUserInfo(this.loggedInUserId).then((newUserInfo) => {
                 this.userInfo = newUserInfo;
@@ -51,7 +53,7 @@ export class MainModule {
             })
         } else {
             this.renderModule.renderView('login', { 
-                error: 'invalidLogin' 
+                error: 'No account found with these credentials' 
             });
         }
     }

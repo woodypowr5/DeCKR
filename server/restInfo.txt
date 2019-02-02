@@ -1,0 +1,12 @@
+1) Get All Users -> http://sen632webapi.gear.host/api/user
+2) Get one user -> http://sen632webapi.gear.host/api/user/string  - string is the userid
+3) Set password for a user -> http://sen632webapi.gear.host/api/user/post?Id=string&passwordHash=string&salt=string  - needs three string parameters - Id, passwordHash, Salt
+4) Get All Contracts -> http://sen632webapi.gear.host/api/contract
+5) Get All Departments -> http://sen632webapi.gear.host/api/department
+6) Get All Security Groups -> http://sen632webapi.gear.host/api/SecurityGroup
+7) Get All Trainings ->http://sen632webapi.gear.host/api/Training
+8) Get User Contracts -> http://sen632webapi.gear.host/api/contract/string  - string is the userid
+9) Sign a Contract -> http://sen632webapi.gear.host/api/contract/post?Id=string&contractId=int  - string is userid, int is contractid
+10) Set Training status -> http://sen632webapi.gear.host/api/training/post?Id=string1&trainingId=int1&status=string2&completion=int2 - string1 is userid, int1 is trainingid, string2 is status (Current, Due, OverDue), int2 is 0-100 number(percentage)
+11) Get User Security Groups -> http://sen632webapi.gear.host/api/SecurityGroup/string - string is the userid
+12)Get USer Training -> http://sen632webapi.gear.host/api/Training/string  - string is the userid

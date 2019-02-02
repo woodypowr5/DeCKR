@@ -4,8 +4,9 @@ import './styles.css';
 
 window.deckrApp = new MainModule();
 
-declare global {
+// get access to the browser Window instance:
+
+declare global { 
     interface Window { deckrApp: any; }
 }
-
 window.deckrApp = window.deckrApp || {};

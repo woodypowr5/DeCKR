@@ -22,7 +22,7 @@ export class DataAccessModule {
         userInfo.trainings.filter( training => training.id === trainingId)[0].status = 'complete';
         let data = await new Promise<UserInfo>((resolve, reject) => {
             setTimeout(function(){ 
-                resolve(userInfo)
+                resolve(userInfo);
             }, 500);
         });  
         this.userInfo = data;
