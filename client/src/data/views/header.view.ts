@@ -18,17 +18,17 @@ const args = {
                 </div>
             </div>
         </header>
-        <div class="mdl-layout__drawer">
+        <div class="mdl-layout__drawer" id="nav">
             <span class="mdl-layout-title">DeCKR</span>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="">Dashboard</a>
-                <a class="mdl-navigation__link" href="">Trainings</a>
-                <a class="mdl-navigation__link" href="">Contracts</a>
-                <a class="mdl-navigation__link" href="">Security Groups</a>
+                <a class="mdl-navigation__link" href="#" onclick="window.deckrApp.navigateDashboard()">Dashboard</a>
+                <a class="mdl-navigation__link" href="#" onclick="window.deckrApp.navigateTrainings()">Trainings</a>
+                <a class="mdl-navigation__link" href="#" onclick="window.deckrApp.navigateContracts()">Contracts</a>
+                <a class="mdl-navigation__link" href="#" onclick="window.deckrApp.navigateSecurityGroups()">Security Groups</a>
                 <hr>
-                <a class="mdl-navigation__link" href="">Change Password</a>
-                <a class="mdl-navigation__link" href="">Login</a>
-                <a class="mdl-navigation__link" href="">Logout</a>
+                <a class="mdl-navigation__link" href="#">Change Password</a>
+                <a class="mdl-navigation__link" href="#" onclick="window.deckrApp.navigateLogin()">Login</a>
+                <a class="mdl-navigation__link" href="#" onclick="window.deckrApp.navigateLogout()">Logout</a>
             </nav>
         </div>
     `,

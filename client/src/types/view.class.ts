@@ -33,6 +33,16 @@ export class View {
             });
             this.renderNestedElements(model, views.contract);
         }
+        this.closeNav();
+    }
+
+    private closeNav(): void {
+        let nav = document.getElementById("nav");
+        nav.classList.remove("is-visible");
+        let obfuscator = document.getElementsByClassName("mdl-layout__obfuscator")[0];
+        if(obfuscator) {
+            obfuscator.classList.remove("is-visible");   
+        }
     }
 
     private setAnchorElement() {

@@ -65,7 +65,6 @@ export class DataAccessModule {
         let xhr = new XMLHttpRequest();
         return new Promise<any>((resolve, reject) => {
             xhr.open(restVerb, url);
-            console.log(url)
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(null);
             xhr.onreadystatechange =  () => {
@@ -75,9 +74,10 @@ export class DataAccessModule {
                   if (xhr.status === OK) 
                     resolve(JSON.parse(xhr.responseText));
                   } else {
-                    console.log('Error: ' + xhr.status);
                     if(xhr.status === 204) {
                         resolve();
+                    } else {
+                        console.log('Error: ' + xhr.status);
                     }
                   }
             }
