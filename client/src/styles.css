@@ -116,6 +116,16 @@ main{
     color: green;
 }
 
+.training-card .reset-training{
+    margin-left: 20px;
+    color: red;
+    text-decoration: underline;
+}
+
+.training-card .reset-training:hover{
+   cursor: pointer;
+}
+
 .content-card button {
     margin: 15px 0px 3px 0px;
     display: block;

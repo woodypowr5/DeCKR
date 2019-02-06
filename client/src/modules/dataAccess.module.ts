@@ -65,6 +65,7 @@ export class DataAccessModule {
         let xhr = new XMLHttpRequest();
         return new Promise<any>((resolve, reject) => {
             xhr.open(restVerb, url);
+            console.log(url)
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(null);
             xhr.onreadystatechange =  () => {
@@ -75,17 +76,21 @@ export class DataAccessModule {
                     resolve(JSON.parse(xhr.responseText));
                   } else {
                     console.log('Error: ' + xhr.status);
+                    if(xhr.status === 204) {
+                        resolve();
+                    }
                   }
             }
         });    
     }
 
-    async verifyTrainingComplete(userId: string, trainingId: string): Promise<UserInfo> {
+    setTrainingStatus(newStatus: string, userId: string, trainingId: string): Promise<UserInfo> {
         return new Promise<any>((resolve, reject) => {
-            let setTraining = this.makeRequest('POST', this.api + '/training/post?Id=' + userId + '&trainingId=' + trainingId + '&status=Current&completion=100')
-                .then(() => {
-                    resolve(this.fetchUserInfo(this.userInfo.id));
+            let setTraining = this.makeRequest('POST', this.api + '/training/post?Id=' + userId + '&trainingId=' + trainingId + '&status=' + newStatus + '&completion=100').then( data => {
+                this.fetchUserInfo(this.userInfo.id).then( newUserInfo => {
+                    resolve(newUserInfo);
                 });
+            });
         });        
     }
 

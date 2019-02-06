@@ -50,7 +50,7 @@ export class MainModule {
             this.dataAccessModule.fetchUserInfo(this.loggedInUserId).then((newUserInfo) => {
                 this.userInfo = newUserInfo;
                 this.renderModule.renderView('dashboard', {});
-            })
+            });
         } else {
             this.renderModule.renderView('login', { 
                 error: 'No account found with these credentials' 
@@ -63,9 +63,17 @@ export class MainModule {
     }
 
     verifyTrainingComplete(trainingId: string): void {
-        this.dataAccessModule.verifyTrainingComplete(this.loggedInUserId, trainingId).then( newUserInfo => {
+        this.dataAccessModule.setTrainingStatus('Current', this.loggedInUserId, trainingId).then( newUserInfo => {
             this.userInfo = newUserInfo;
+            this.renderModule.renderView('trainings', this.userInfo);
         });
-        this.renderModule.renderView('trainings', this.userInfo);
+        
+    }
+
+    resetTraining(trainingId: string): void {
+        this.dataAccessModule.setTrainingStatus('Due', this.loggedInUserId, trainingId).then( newUserInfo => {
+            this.userInfo = newUserInfo;
+            this.renderModule.renderView('trainings', this.userInfo);
+        });   
     }
 }
