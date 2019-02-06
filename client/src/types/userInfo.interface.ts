@@ -3,6 +3,7 @@ import { Training } from "./training.interface";
 import { Contract } from "./contract.interface";
 
 export interface UserInfo {
+    id: string;
     name: string;
     securityGroups: SecurityGroup[];
     trainings: Training[];

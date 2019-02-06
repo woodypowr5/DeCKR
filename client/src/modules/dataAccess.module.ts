@@ -1,32 +1,92 @@
 import { UserInfo } from "../types/userInfo.interface";
 import { mockData } from "../data/mockData";
+import { Contract } from "../types/contract.interface";
+import { Training } from "../types/training.interface";
 
 export class DataAccessModule {
     private userInfo: UserInfo;
+    private api: string = 'http://sen632webapi.gear.host/api';
 
     constructor() {}
 
-    async fetchUserInfo(userId: string): Promise<UserInfo>{ 
-        const userInfo: UserInfo = mockData.userInfo; 
-        let data = await new Promise<UserInfo>((resolve, reject) => {
-            setTimeout(function(){ 
+    fetchUserInfo(userId: string): Promise<UserInfo>{ 
+        let userInfo: UserInfo;
+        let getUser = this.makeRequest('GET', this.api + '/user/' + userId);
+        let getUserContracts = this.makeRequest('GET', this.api + '/contract/' + userId);
+        let getUserTrainings = this.makeRequest('GET', this.api + '/Training/' + userId);
+
+        return new Promise<UserInfo>((resolve, reject) => {
+            Promise.all([getUser, getUserTrainings, getUserContracts]).then( values => {
+                const [user, trainings, contracts] = values;
+                userInfo = {
+                    id: user.UserId,
+                    name: user.Name,
+                    securityGroups: trainings,
+                    trainings: this.processTrainings(trainings),
+                    contracts: this.processContracts(contracts),
+                    jobPosition: user.JobTitle,
+                    department: user.DepartmentId,
+                    address: user.Address,
+                    DOB: user.DOB,
+                    SSN: user.SSN,
+                    bankInfo: user.BankInfo,
+                    highestEductation: user.Education,
+                    prevEmployment: user.Employment
+                }
+                this.userInfo = userInfo;
                 resolve(userInfo);
-            }, 500);
-        });  
-        this.userInfo = data;
-        return data;
+            }); 
+        });
+    }
+
+    private processTrainings(trainings: any): Training[] {
+        return trainings.map( training => {
+            return {
+                id: training.Id,
+                name: training.Name,
+                status: training.Status,
+                date: training.Date,
+            }
+        });
+    }
+
+    private processContracts(contracts: any): Contract[] {
+        return contracts.map( contract => {
+            console.log(contract);
+            return {
+                id: contract.Id,
+                name: contract.Name,
+                date: contract.Date,
+            }
+        });
+    }
+
+    private makeRequest(restVerb: string, url: string): Promise<any> {
+        let xhr = new XMLHttpRequest();
+        return new Promise<any>((resolve, reject) => {
+            xhr.open(restVerb, url);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(null);
+            xhr.onreadystatechange =  () => {
+                var DONE = 4;
+                var OK = 200;
+                if (xhr.readyState === DONE) {
+                  if (xhr.status === OK) 
+                    resolve(JSON.parse(xhr.responseText));
+                  } else {
+                    console.log('Error: ' + xhr.status);
+                  }
+            }
+        });    
     }
 
     async verifyTrainingComplete(userId: string, trainingId: string): Promise<UserInfo> {
-        const userInfo: UserInfo = this.userInfo; 
-        userInfo.trainings.filter( training => training.id === trainingId)[0].status = 'complete';
-        let data = await new Promise<UserInfo>((resolve, reject) => {
-            setTimeout(function(){ 
-                resolve(userInfo);
-            }, 500);
-        });  
-        this.userInfo = data;
-        return data;
+        return new Promise<any>((resolve, reject) => {
+            let setTraining = this.makeRequest('GET', this.api + '/training/post?Id=' + userId + '&trainingId=' + trainingId + '&status=Current&completion=100')
+                .then(() => {
+                    resolve(this.fetchUserInfo(this.userInfo.id));
+                });
+        });        
     }
 
     signContract(userId: string, contractId: string) {

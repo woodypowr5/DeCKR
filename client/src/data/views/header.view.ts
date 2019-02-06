@@ -19,7 +19,7 @@ const args = {
             </div>
         </header>
         <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Title</span>
+            <span class="mdl-layout-title">DeCKR</span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link" href="">Dashboard</a>
                 <a class="mdl-navigation__link" href="">Trainings</a>

@@ -18,8 +18,7 @@ const args = {
                     </div>
                     <div class="mdl-card__supporting-text mdl-grid">
             
-                        <b class="mdl-color-text--accent">Error message goes here</b>
-                    
+                        <b class="mdl-color-text--accent"></b>
             
                         <form method="POST" action="">
                             <input type="hidden" name="action" value="register"/>

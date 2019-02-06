@@ -28,7 +28,8 @@ export class View {
             this.renderNestedElements(model, views.securityGroup);
         } else if (this.name === 'contracts') {
             model.contracts.map(contract => {
-               contract.signature == null ? contract.signatureDate = null : contract.signatureDate = contract.signature.date; 
+                console.log(contract)
+                contract.signature == null ? contract.signatureDate = null : contract.signatureDate = contract.signature.date; 
             });
             this.renderNestedElements(model, views.contract);
         }
@@ -54,10 +55,8 @@ export class View {
     }
 
     private populateTemplate(model: any): void {
-        console.log(model);
         let newTemplate = this.evaluateConditionalTokens(this.template, model);
         for (var attribute in model) {
-            console.log(attribute)
             newTemplate = newTemplate.replace('[[' + attribute + ']]', model[attribute]);
             newTemplate = newTemplate.replace('undefined', '');
         }  
@@ -87,12 +86,8 @@ export class View {
     }
 
     private renderNestedElements(model: Object, view: View): void {
-        console.log(model);;
-        console.log(view)
         const collection: any[] = model[this.name];
         collection.map((instance, index) => {
-            console.log(view);
-            console.log(collection[index]);
             view.render(collection[index]);
         });
     }

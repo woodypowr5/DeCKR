@@ -9,7 +9,7 @@ const args = {
                     <h2 class="mdl-card__title-text mdl-color-text--white">Login</h2>
                 </div>
                 <div class="mdl-card__supporting-text mdl-grid">
-                    <b class="mdl-color-text--accent">Error message goes here</b>
+                    <b class="mdl-color-text--accent"></b>
                     <form action="javascript:void(0);">
                         <input type="hidden" name="action" value="login"/>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">

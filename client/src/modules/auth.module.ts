@@ -6,8 +6,8 @@ export class AuthModule {
     }
 
     login(username: string, password: string): string {
-        console.log("AuthModule: logging in as " + username);
-        this.loggedInUserId = this.authenticate(username, password);
+        console.log("AuthModule: logging in as user1 (for demo)");
+        this.loggedInUserId = this.authenticate("user1", password);
         return this.loggedInUserId;
     }
 

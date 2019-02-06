@@ -9,4 +9,4 @@
 9) Sign a Contract -> http://sen632webapi.gear.host/api/contract/post?Id=string&contractId=int  - string is userid, int is contractid
 10) Set Training status -> http://sen632webapi.gear.host/api/training/post?Id=string1&trainingId=int1&status=string2&completion=int2 - string1 is userid, int1 is trainingid, string2 is status (Current, Due, OverDue), int2 is 0-100 number(percentage)
 11) Get User Security Groups -> http://sen632webapi.gear.host/api/SecurityGroup/string - string is the userid
-12)Get USer Training -> http://sen632webapi.gear.host/api/Training/string  - string is the userid
+12) Get USer Training -> http://sen632webapi.gear.host/api/Training/string  - string is the userid
