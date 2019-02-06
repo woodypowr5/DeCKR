@@ -8,7 +8,7 @@ const args = {
             Contracts
         </h2>
         <hr>
-        <div class="contracts-content" id="contracts-content"></div>
+        <div class="contracts-content content-grid" id="contracts-content"></div>
     `,
     anchorElementId: 'main-content'
 }

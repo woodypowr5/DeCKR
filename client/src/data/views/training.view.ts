@@ -4,7 +4,7 @@ const args = {
     name: 'training',
     template: `
         <div class="training">
-            <div class="training-card mdl-card mdl-shadow--2dp">
+            <div class="training-card content-card mdl-card mdl-shadow--2dp">
                 <img class="training-card-image" src="https://picsum.photos/600/100">
                 <div class="mdl-card__title mdl-card--expand">
                     <h2 class="mdl-card__title-text">[[name]]</h2>

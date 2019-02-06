@@ -82,7 +82,7 @@ export class DataAccessModule {
 
     async verifyTrainingComplete(userId: string, trainingId: string): Promise<UserInfo> {
         return new Promise<any>((resolve, reject) => {
-            let setTraining = this.makeRequest('GET', this.api + '/training/post?Id=' + userId + '&trainingId=' + trainingId + '&status=Current&completion=100')
+            let setTraining = this.makeRequest('POST', this.api + '/training/post?Id=' + userId + '&trainingId=' + trainingId + '&status=Current&completion=100')
                 .then(() => {
                     resolve(this.fetchUserInfo(this.userInfo.id));
                 });

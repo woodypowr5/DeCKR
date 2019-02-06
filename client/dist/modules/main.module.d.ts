@@ -17,4 +17,5 @@ export declare class MainModule {
     navigateSecurityGroups(): void;
     login(): void;
     logout(): void;
+    verifyTrainingComplete(trainingId: string): void;
 }
