@@ -2,11 +2,11 @@ import { UserInfo } from "../types/userInfo.interface";
 import { mockData } from "../data/mockData";
 import { Contract } from "../types/contract.interface";
 import { Training } from "../types/training.interface";
+import { SecurityGroup } from "../types/securityGroup.interface";
 
 export class DataAccessModule {
     private userInfo: UserInfo;
     private api: string = 'http://sen632webapi.gear.host/api';
-
     constructor() {}
 
     fetchUserInfo(userId: string): Promise<UserInfo>{ 
@@ -14,14 +14,15 @@ export class DataAccessModule {
         let getUser = this.makeRequest('GET', this.api + '/user/' + userId);
         let getUserContracts = this.makeRequest('GET', this.api + '/contract/' + userId);
         let getUserTrainings = this.makeRequest('GET', this.api + '/Training/' + userId);
+        let getUserSecurityGroups = this.makeRequest('GET', this.api + '/SecurityGroup/' + userId);
 
         return new Promise<UserInfo>((resolve, reject) => {
-            Promise.all([getUser, getUserTrainings, getUserContracts]).then( values => {
-                const [user, trainings, contracts] = values;
+            Promise.all([getUser, getUserTrainings, getUserContracts, getUserSecurityGroups]).then( values => {
+                const [user, trainings, contracts, securityGroups] = values;
                 userInfo = {
                     id: user.UserId,
                     name: user.Name,
-                    securityGroups: trainings,
+                    securityGroups: this.processSecurityGroups(securityGroups),
                     trainings: this.processTrainings(trainings),
                     contracts: this.processContracts(contracts),
                     jobPosition: user.JobTitle,
@@ -34,7 +35,9 @@ export class DataAccessModule {
                     prevEmployment: user.Employment
                 }
                 this.userInfo = userInfo;
+                console.log(this.userInfo);
                 resolve(userInfo);
+                
             }); 
         });
     }
@@ -57,6 +60,17 @@ export class DataAccessModule {
                 id: contract.Id,
                 name: contract.Name,
                 date: contract.Date,
+            }
+        });
+    }
+
+    private processSecurityGroups(securityGroups: any): SecurityGroup[] {
+        return securityGroups.map( securityGroup => {
+            console.log(securityGroup);
+            return {
+                id: securityGroup.SecurityGroup.Id,
+                description: securityGroup.SecurityGroup.Description,
+                name: securityGroup.SecurityGroup.Name
             }
         });
     }

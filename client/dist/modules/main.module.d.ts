@@ -18,4 +18,5 @@ export declare class MainModule {
     login(): void;
     logout(): void;
     verifyTrainingComplete(trainingId: string): void;
+    resetTraining(trainingId: string): void;
 }

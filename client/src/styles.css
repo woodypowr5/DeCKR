@@ -118,7 +118,7 @@ main{
 
 .training-card .reset-training{
     margin-left: 20px;
-    color: red;
+    color: #AAA;
     text-decoration: underline;
 }
 

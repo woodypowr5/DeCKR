@@ -7,7 +7,7 @@ export declare class DataAccessModule {
     private processTrainings;
     private processContracts;
     private makeRequest;
-    verifyTrainingComplete(userId: string, trainingId: string): Promise<UserInfo>;
+    setTrainingStatus(newStatus: string, userId: string, trainingId: string): Promise<UserInfo>;
     signContract(userId: string, contractId: string): void;
     setPassword(userId: string, pasword: string): void;
 }
