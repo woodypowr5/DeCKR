@@ -15,7 +15,7 @@ const args = {
             </div>
             <div class="mdl-card__actions mdl-card--border">
                 {if(model.date === null){<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">View & Sign</a>}}
-                {if(model.date !== null){<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Signed on [[date]]</a>}}
+                {if(model.date !== null){<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Signed on [[date]]</a><span class="reset-contract" onclick="window.deckrApp.resetContract([[id]])">unsign</span>}}
             </div>
         </div>
     </div>

@@ -59,7 +59,9 @@ export class MainModule {
     }
 
     logout() {
-
+        this.loggedInUserId = undefined;
+        this.userInfo = undefined;
+        this.renderModule.renderView('register', {});
     }
 
     verifyTrainingComplete(trainingId: string): void {
@@ -74,6 +76,13 @@ export class MainModule {
         this.dataAccessModule.setTrainingStatus('Due', this.loggedInUserId, trainingId).then( newUserInfo => {
             this.userInfo = newUserInfo;
             this.renderModule.renderView('trainings', this.userInfo);
+        });   
+    }
+
+    resetContract(contractId: string): void {
+        this.dataAccessModule.setContract(this.loggedInUserId, contractId).then( newUserInfo => {
+            this.userInfo = newUserInfo;
+            this.renderModule.renderView('contracts', this.userInfo);
         });   
     }
 }

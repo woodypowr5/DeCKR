@@ -108,8 +108,14 @@ export class DataAccessModule {
         });        
     }
 
-    signContract(userId: string, contractId: string) {
-
+    setContract(userId: string, contractId: string) {
+        return new Promise<any>((resolve, reject) => {
+            let setContract = this.makeRequest('POST', this.api + '/contract/post?Id=' + userId + '&contractId=' + contractId).then( data => {
+                this.fetchUserInfo(this.userInfo.id).then( newUserInfo => {
+                    resolve(newUserInfo);
+                });
+            });
+        });      
     }
 
     setPassword(userId: string, pasword: string) {

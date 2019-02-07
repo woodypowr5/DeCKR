@@ -6,8 +6,11 @@ export class AuthModule {
     }
 
     login(username: string, password: string): string {
-        console.log("AuthModule: logging in as user1 (for demo)");
-        this.loggedInUserId = this.authenticate("user1", password);
+        if (username !== "") {
+            this.loggedInUserId = this.authenticate(username, password);
+        } else {
+            this.loggedInUserId = this.authenticate("user1", password);
+        }
         return this.loggedInUserId;
     }
 
@@ -19,9 +22,7 @@ export class AuthModule {
         return this.loggedInUserId === userId; 
     }
 
-    private authenticate(username: string, password: string) {
-        // call out to server here
-        console.log("logged in as " + username);
-        return username;
+    private authenticate(userId: string, password: string) {
+        return userId; // simplified for demo
     }
 }
