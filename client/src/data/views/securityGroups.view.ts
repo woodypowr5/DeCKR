@@ -3,7 +3,7 @@ import { View } from "../../types/view.class";
 const args = {
     name: 'securityGroups',
     template: `
-        <a  href="#" class="navigate-back-link"  onclick="window.deckrApp.navigateDashboard()">Back</a>
+        <a  href="#" class="navigate-back-link"  onclick="window.deckrApp.navigate('dashboard')">Back</a>
         <h2>
             Security Groups
         </h2>

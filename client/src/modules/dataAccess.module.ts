@@ -35,9 +35,7 @@ export class DataAccessModule {
                     prevEmployment: user.Employment
                 }
                 this.userInfo = userInfo;
-                console.log(this.userInfo);
                 resolve(userInfo);
-                
             }); 
         });
     }
@@ -55,7 +53,6 @@ export class DataAccessModule {
 
     private processContracts(contracts: any): Contract[] {
         return contracts.map( contract => {
-            console.log(contract);
             return {
                 id: contract.Id,
                 name: contract.Name,
@@ -66,7 +63,6 @@ export class DataAccessModule {
 
     private processSecurityGroups(securityGroups: any): SecurityGroup[] {
         return securityGroups.map( securityGroup => {
-            console.log(securityGroup);
             return {
                 id: securityGroup.SecurityGroup.Id,
                 description: securityGroup.SecurityGroup.Description,
@@ -81,19 +77,19 @@ export class DataAccessModule {
             xhr.open(restVerb, url);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(null);
-            xhr.onreadystatechange =  () => {
+            xhr.onreadystatechange = () => {
                 var DONE = 4;
                 var OK = 200;
                 if (xhr.readyState === DONE) {
-                  if (xhr.status === OK) 
-                    resolve(JSON.parse(xhr.responseText));
-                  } else {
-                    if(xhr.status === 204) {
-                        resolve();
+                    if (xhr.status === OK) 
+                        resolve(JSON.parse(xhr.responseText));
                     } else {
-                        console.log('Error: ' + xhr.status);
+                        if(xhr.status === 204) {
+                            resolve();
+                        } else {
+                            console.log('Error: ' + xhr.status);
+                        }
                     }
-                  }
             }
         });    
     }
@@ -108,17 +104,13 @@ export class DataAccessModule {
         });        
     }
 
-    setContract(userId: string, contractId: string) {
+    setContract(userId: string, contractId: string, sign: boolean) {
         return new Promise<any>((resolve, reject) => {
-            let setContract = this.makeRequest('POST', this.api + '/contract/post?Id=' + userId + '&contractId=' + contractId).then( data => {
+            let setContract = this.makeRequest('POST', this.api + '/contract/post?Id=' + userId + '&contractId=' + contractId + '&sign=' + sign).then( data => {
                 this.fetchUserInfo(this.userInfo.id).then( newUserInfo => {
                     resolve(newUserInfo);
                 });
             });
         });      
-    }
-
-    setPassword(userId: string, pasword: string) {
-
     }
 }

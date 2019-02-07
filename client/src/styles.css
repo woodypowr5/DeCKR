@@ -116,13 +116,13 @@ main{
     color: green;
 }
 
-.training-card .reset-training{
+.training-card .reset-training, .contract-card .reset-contract{
     margin-left: 20px;
     color: #AAA;
     text-decoration: underline;
 }
 
-.training-card .reset-training:hover{
+.training-card .reset-training:hover, .contract-card .reset-contract:hover{
    cursor: pointer;
 }
 

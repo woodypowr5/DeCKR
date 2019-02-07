@@ -1,16 +1,17 @@
 import { View } from "../../types/view.class";
 
 const args = {
-    name: 'contracts',
+    name: 'changePassword',
     template: `
         <a href="#" class="navigate-back-link" onclick="window.deckrApp.navigate('dashboard')">Back</a>
         <h2>
-            Contracts
+            Change Password
         </h2>
-        <hr>
-        <div class="contracts-content content-grid" id="contracts-content"></div>
+        <h3>
+            This functionality is outside the scope of this project
+        </h3>
     `,
     anchorElementId: 'main-content'
 }
 
-export const contractsView = new View(args.name, args.template, args.anchorElementId);
+export const changePasswordView = new View(args.name, args.template, args.anchorElementId);

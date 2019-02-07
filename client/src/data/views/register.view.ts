@@ -7,7 +7,7 @@ const args = {
             Registration
         </h2>
         <h3>
-            Already registerd? Log in <a onclick="window.deckrApp.navigateLogin()">here</a>
+            Already registerd? Log in <a onclick="window.deckrApp.navigate('login')">here</a>
         </h3>
     
         
@@ -17,9 +17,7 @@ const args = {
                         <h2 class="mdl-card__title-text mdl-color-text--white">Create a New Account</h2>
                     </div>
                     <div class="mdl-card__supporting-text mdl-grid">
-            
                         <b class="mdl-color-text--accent"></b>
-            
                         <form method="POST" action="">
                             <input type="hidden" name="action" value="register"/>
             

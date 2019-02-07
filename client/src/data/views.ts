@@ -11,6 +11,7 @@ import { contractsView } from './views/contracts.view';
 import { securityGroupsView } from './views/securityGroups.view';
 import { securityGroupView } from './views/securityGroup.view';
 import { contractView } from './views/contract.view';
+import { changePasswordView } from './views/changePassword.view';
 
 export const views = {
     header: headerView,
@@ -24,5 +25,6 @@ export const views = {
     contracts: contractsView,
     contract: contractView,
     securityGroups: securityGroupsView,
-    securityGroup: securityGroupView
+    securityGroup: securityGroupView,
+    changePassword: changePasswordView
 }

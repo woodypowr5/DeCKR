@@ -22,24 +22,8 @@ export class MainModule {
         this.renderModule.renderView('register', {});
     }
 
-    navigateLogin() {
-        this.renderModule.renderView('login', {});
-    }
-
-    navigateDashboard() {
-        this.renderModule.renderView('dashboard', {});
-    }
-
-    navigateTrainings() {
-        this.renderModule.renderView('trainings', this.userInfo);
-    }
-
-    navigateContracts() {
-        this.renderModule.renderView('contracts', this.userInfo);
-    }
-
-    navigateSecurityGroups() {
-        this.renderModule.renderView('securityGroups',  this.userInfo);
+    navigate(viewName: string): void {
+        this.renderModule.renderView(viewName, this.userInfo);
     }
 
     login() {
@@ -49,7 +33,7 @@ export class MainModule {
         if (this.authModule.isAuthenticated(this.loggedInUserId)) {
             this.dataAccessModule.fetchUserInfo(this.loggedInUserId).then((newUserInfo) => {
                 this.userInfo = newUserInfo;
-                this.renderModule.renderView('dashboard', {});
+                this.renderModule.renderView('dashboard', this.userInfo);
             });
         } else {
             this.renderModule.renderView('login', { 
@@ -79,8 +63,8 @@ export class MainModule {
         });   
     }
 
-    resetContract(contractId: string): void {
-        this.dataAccessModule.setContract(this.loggedInUserId, contractId).then( newUserInfo => {
+    setContract(contractId: string, sign: boolean): void {
+        this.dataAccessModule.setContract(this.loggedInUserId, contractId, sign).then( newUserInfo => {
             this.userInfo = newUserInfo;
             this.renderModule.renderView('contracts', this.userInfo);
         });   
