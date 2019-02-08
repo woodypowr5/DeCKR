@@ -13,6 +13,7 @@ export declare class RenderModule {
         contract: View;
         securityGroups: View;
         securityGroup: View;
+        changePassword: View;
     };
     constructor();
     renderView(viewName: string, data: Object): void;

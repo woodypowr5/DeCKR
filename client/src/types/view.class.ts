@@ -28,7 +28,6 @@ export class View {
             this.renderNestedElements(model, views.securityGroup);
         } else if (this.name === 'contracts') {
             model.contracts.map(contract => {
-                console.log(contract)
                 contract.signature == null ? contract.signatureDate = null : contract.signatureDate = contract.signature.date; 
             });
             this.renderNestedElements(model, views.contract);

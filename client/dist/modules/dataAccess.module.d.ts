@@ -6,8 +6,8 @@ export declare class DataAccessModule {
     fetchUserInfo(userId: string): Promise<UserInfo>;
     private processTrainings;
     private processContracts;
+    private processSecurityGroups;
     private makeRequest;
     setTrainingStatus(newStatus: string, userId: string, trainingId: string): Promise<UserInfo>;
-    signContract(userId: string, contractId: string): void;
-    setPassword(userId: string, pasword: string): void;
+    setContract(userId: string, contractId: string, sign: boolean): Promise<any>;
 }

@@ -86,8 +86,6 @@ export class DataAccessModule {
                     } else {
                         if(xhr.status === 204) {
                             resolve();
-                        } else {
-                            console.log('Error: ' + xhr.status);
                         }
                     }
             }

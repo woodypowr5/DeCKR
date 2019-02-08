@@ -10,13 +10,10 @@ export declare class MainModule {
     dataAccessModule: DataAccessModule;
     constructor();
     initialize(): void;
-    navigateLogin(): void;
-    navigateDashboard(): void;
-    navigateTrainings(): void;
-    navigateContracts(): void;
-    navigateSecurityGroups(): void;
+    navigate(viewName: string): void;
     login(): void;
     logout(): void;
     verifyTrainingComplete(trainingId: string): void;
     resetTraining(trainingId: string): void;
+    setContract(contractId: string, sign: boolean): void;
 }

@@ -12,4 +12,5 @@ export declare const views: {
     contract: View;
     securityGroups: View;
     securityGroup: View;
+    changePassword: View;
 };
