@@ -1,3 +1,11 @@
+/*****************************************************
+* Name: Chris Woodward                               *
+* Date: 02/08/2019                                   *
+* Course: SEN632                                     *
+* Assigment: Project                                 *
+* Instructor:  James Garrova                         *
+******************************************************/
+
 import { UserInfo } from "../types/userInfo.interface";
 import { mockData } from "../data/mockData";
 import { Contract } from "../types/contract.interface";

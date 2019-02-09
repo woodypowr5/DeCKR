@@ -1,3 +1,11 @@
+/*****************************************************
+* Name: Chris Woodward                               *
+* Date: 02/08/2019                                   *
+* Course: SEN632                                     *
+* Assigment: Project                                 *
+* Instructor:  James Garrova                         *
+******************************************************/
+
 import { trainingView } from "../data/views/training.view";
 import { views } from "../data/views";
 import { Contract } from "./contract.interface";
@@ -63,17 +71,17 @@ export class View {
         } 
     }
 
-    private populateTemplate(model: any): void {
+    private populateTemplate(model: any): void { 
         let newTemplate = this.evaluateConditionalTokens(this.template, model);
         for (var attribute in model) {
-            newTemplate = newTemplate.replace('[[' + attribute + ']]', model[attribute]);
+            newTemplate = newTemplate.replace('[[' + attribute + ']]', model[attribute]); // pattern = [[attribute]]
             newTemplate = newTemplate.replace('undefined', '');
         }  
         this.populatedTemplate = newTemplate;  
     }
 
     private evaluateConditionalTokens(template: string, model: any): string {
-        let ifTokenRegex = new RegExp(/\{if(.*)\{.*?\}\}/, 'g');
+        let ifTokenRegex = new RegExp(/\{if(.*)\{.*?\}\}/, 'g'); // pattern = {if(condition)}--HTMLcontent--}}
         let conditionalToken = template.match(ifTokenRegex);
         if (conditionalToken !== null && conditionalToken.length > 0) {
             let result = template.replace(ifTokenRegex, (token, clause) => {

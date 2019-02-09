@@ -1,3 +1,11 @@
+/*****************************************************
+* Name: Chris Woodward                               *
+* Date: 02/08/2019                                   *
+* Course: SEN632                                     *
+* Assigment: Project                                 *
+* Instructor:  James Garrova                         *
+******************************************************/
+
 import { RenderModule } from "./render.module";
 import { AuthModule } from "./auth.module";
 import { views } from '../data/views';
